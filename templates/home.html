@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block root %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col" >
+            <h1 class='d-flex justify-content-center font-weight-bold'>Library Management System</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center ">
+            {% comment %} <img src="{% static 'img/first.jpg' %}" class="img-fluid" alt="image"> {% endcomment %}
+            <h3 class='mt-5'><a class="btn btn-secondary btn-lg" href="{% url 'create' %}">Add Book</a>
+                <a class="btn btn-secondary btn-lg" href="{% url 'all-books' %}">Book List</a>
+
+            </h3>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+
+{% endblock root %}

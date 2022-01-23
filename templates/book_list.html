@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}List{% endblock title %}
+{% block root %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col" >
+            <h1 class='d-flex justify-content-center font-weight-bold'>Our Book List</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center ">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">S No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+              
+                {% for b in object_list %}
+                  <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{b.name}}</td>
+                    <td>{{b.author}}</td>
+                    <td>{{b.genre}}</td>
+                    <td>{{b.price}}</td>
+                    <td><a class="btn btn-info" href="{% url 'update' pk=b.pk %}">Edit</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'delete' pk=b.pk %}">Delete</a></td>
+                  </tr>
+
+                  {% endfor %}
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock root %}
